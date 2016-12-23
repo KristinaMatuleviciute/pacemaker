@@ -1,0 +1,37 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# UI
+
+GET     /                                          controllers.Accounts.index()
+GET     /signup                                    controllers.Accounts.signup()
+GET     /login                                     controllers.Accounts.login()
+GET     /logout                                    controllers.Accounts.logout()
+POST    /register                                  controllers.Accounts.register()
+POST    /authenticate                              controllers.Accounts.authenticate()
+
+GET     /dashboard                                 controllers.Dashboard.index()
+GET     /upload                                    controllers.Dashboard.uploadActivityForm()
+GET     /uploadlocation                            controllers.Dashboard.uploadLocationForm()
+POST    /submitactivity                            controllers.Dashboard.submitActivity()
+POST    /submitlocation               controllers.Dashboard.submitLocation(activityId: Long)
+# API
+
+GET     /api/users                                 controllers.PacemakerAPI.users()
+DELETE  /api/users                                 controllers.PacemakerAPI.deleteAllUsers()
+POST    /api/users                                 controllers.PacemakerAPI.createUser()
+
+GET    /api/users/:id                              controllers.PacemakerAPI.user(id: Long)
+DELETE /api/users/:id                              controllers.PacemakerAPI.deleteUser(id: Long)
+PUT    /api/users/:id                              controllers.PacemakerAPI.updateUser(id: Long)
+
+GET     /api/users/:userId/activities              controllers.PacemakerAPI.activities(userId: Long)
+POST    /api/users/:userId/activities              controllers.PacemakerAPI.createActivity(userId: Long)
+
+GET     /api/users/:userId/activities/:activityId  controllers.PacemakerAPI.activity(userId: Long, activityId:Long)
+DELETE  /api/users/:userId/activities/:activityId  controllers.PacemakerAPI.deleteActivity(userId: Long, activityId:Long)
+PUT     /api/users/:userId/activities/:activityId  controllers.PacemakerAPI.updateActivity(userId: Long, activityId:Long)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

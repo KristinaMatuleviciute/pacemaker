@@ -1,0 +1,39 @@
+@()
+
+@main("Welcome to Pacemaker") {
+  @welcome_menu()
+
+<section class="ui raised segment">
+  <div class="ui grid">
+    <div class="ui ten wide column">
+      <div class="ui stacked fluid form segment">
+        <form action="/register" method="POST">
+          <h3 class="ui header">Register</h3>
+          <div class="two fields">
+            <div class="field">
+              <label>First Name</label>
+              <input placeholder="First Name" type="text" name="firstname">
+            </div>
+            <div class="field">
+              <label>Last Name</label>
+              <input placeholder="Last Name" type="text" name="lastname">
+            </div>
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input placeholder="Email" type="text" name="email">
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" name="password">
+          </div>
+          <button class="ui blue submit button">Submit</button>
+        </form>
+      </div>  
+    </div>
+    <aside class="ui five wide column">
+      <img src="@routes.Assets.at("images/pacemaker.jpg")" class="ui medium image">
+    </aside>
+  </div>
+</section>
+}

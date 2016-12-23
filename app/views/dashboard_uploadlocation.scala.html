@@ -1,0 +1,40 @@
+@()
+
+@main("Add User") {
+
+  <nav class="ui inverted green menu">
+    <div class="header item"> <a href="/"> Pacemaker </a> </div>
+    <div class="right menu">
+      <a class="item" href="/dashboard"> Dashboard</a>
+      <a class="active item" href="/uploadlocation">  Upload location</a>
+      <a class="item" href="/upload">  Upload activity</a>   
+      <a class="item" href="/logout">  Logout</a>
+    </div>
+  </nav>  
+  
+ <section class="ui raised segment">
+   <div class="ui grid">
+     <aside class="ui six wide column">
+       <img src="@routes.Assets.at("images/pacemaker.jpg")" class="ui medium image">
+     </aside>
+     <div class="ui ten wide column fluid form">
+       <div class="ui stacked segment">
+         <form action="/submitlocation/@activityId" class="ui form" method="POST" >
+           <h3 class="ui header">Enter Location Details: </h3>
+           <div class="field">
+             <label>Latitude</label>
+             <input type="long" 
+             name="latitude" placeholder="52.259280">
+           </div>
+           <div class="field">
+             <label>Longitude</label>
+             <input type="long" 
+             name="longitude" placeholder="-7.116394">
+           </div>          
+           <button class="ui blue submit button"> Upload </button>
+         </form> 
+       </div>
+     </div>
+   </div>
+</section>
+}

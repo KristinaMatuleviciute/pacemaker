@@ -1,0 +1,42 @@
+@(activities: List[Activity])
+
+@main("Welcome to Pacemaker") {
+
+  <nav class="ui inverted green menu">
+    <div class="header item"> <a href="/"> Pacemaker </a> </div>
+    <div class="right menu">
+      <a class="active item" href="/dashboard"> Dashboard</a>
+       <a class="item" href="/uploadlocation">  Upload location</a>
+      <a class="item" href="/upload">  Upload Activity</a>
+      <a class="item" href="/logout">  Logout</a>
+    </div>
+  </nav>    
+  
+  <section class="ui raised segment">
+    <div class="ui grid">
+      <aside class="six wide column">
+        <img src="@routes.Assets.at("images/pacemaker.jpg")" class="ui medium image">
+      </aside>
+      <article class="eight wide column">
+        <h3> <class="ui header"> Activities </h3>
+        <table class="ui celled table segment">
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>Distance</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+  		      @for(i <- 0 until activities.size) {
+  		        <tr>
+  		          <td> @activities(i).location </td> 
+  		          <td> @activities(i).distance </td> 
+  		        </tr>
+  		        }
+  		  </tbody>
+        </table>
+      </article>
+    </div>
+  </section>
+}
